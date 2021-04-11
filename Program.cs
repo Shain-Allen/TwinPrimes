@@ -37,18 +37,25 @@ namespace TwinPrimes
                 {
                     if (i % 2 == 1)
                     {
+                        bool isprime = true;
                         for (int j = 0; j < lastPrime.Length; j++)
                         {
                             if (i % lastPrime[j] != 1 && i % lastPrime[j] != 2)
                                 continue;
 
-                            foreach (int prime in lastprime)
+                            foreach (int prime in lastPrime)
                             {
-                                if (prime != lastPrime[lastPrime.Length])
+                                if (prime != lastPrime[lastPrime.Length - 1])
                                 {
-
+                                    if (i % prime == 0)
+                                    {
+                                        isprime = false;
+                                    }
                                 }
                             }
+
+                            if (!isprime)
+                                continue;
 
                             Array.Resize(ref lastPrime, lastPrime.Length + 1);
                             lastPrime[lastPrime.Length - 1] = i;
@@ -60,7 +67,7 @@ namespace TwinPrimes
 
             for (int i = start; i < lastPrime.Length; i++)
             {
-                Console.WriteLine($"\n{lastPrime[i]},");
+                Console.WriteLine($"{lastPrime[i]},");
             }
         }
     }
