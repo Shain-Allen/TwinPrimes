@@ -42,6 +42,14 @@ namespace TwinPrimes
                             if (i % lastPrime[j] != 1 && i % lastPrime[j] != 2)
                                 continue;
 
+                            foreach (int prime in lastprime)
+                            {
+                                if (prime != lastPrime[lastPrime.Length])
+                                {
+
+                                }
+                            }
+
                             Array.Resize(ref lastPrime, lastPrime.Length + 1);
                             lastPrime[lastPrime.Length - 1] = i;
                             break;
