@@ -16,6 +16,17 @@ namespace TwinPrimes
             if (args.Length > 1 && int.TryParse(args[1], out input))
                 end = input;
 
+            if (end < start)
+            {
+                Console.WriteLine("Error: upper bound should not be smaller then the lower bound");
+                Environment.Exit(0);
+            }
+            else if (start < 0 || end < 0)
+            {
+                Console.WriteLine("Error: upper or lower bound can't be less then 0");
+                Environment.Exit(0);
+            }
+
             Console.WriteLine($"\nfind all prime and twin prime numbers between {start} and {end}");
 
             //its prime time
