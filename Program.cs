@@ -65,9 +65,10 @@ namespace TwinPrimes
                 }
             }
 
-            for (int i = start; i < lastPrime.Length; i++)
+            for (int i = start + 1; i < lastPrime.Length; i++)
             {
-                Console.WriteLine($"{lastPrime[i]},");
+                if (lastPrime[i] - lastPrime[i - 1] == 2)
+                    Console.WriteLine($"{lastPrime[i]},");
             }
         }
     }
