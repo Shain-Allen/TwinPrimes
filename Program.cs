@@ -10,11 +10,27 @@ namespace TwinPrimes
             int end = 75;
             int[] lastPrime = new int[] { };
 
-            int input;
-            if (args.Length > 0 && int.TryParse(args[0], out input))
-                start = input;
-            if (args.Length > 1 && int.TryParse(args[1], out input))
-                end = input;
+            int newStart;
+            int newEnd;
+            // if (args.Length > 0 && int.TryParse(args[0], out input))
+            //     start = input;
+            // if (args.Length > 1 && int.TryParse(args[1], out input))
+            //     end = input;
+
+            if (args.Length == 1 && int.TryParse(args[0], out newEnd))
+            {
+                end = newEnd;
+            }
+            else if (args.Length == 2 && int.TryParse(args[0], out newStart) && int.TryParse(args[1], out newEnd))
+            {
+                start = newStart;
+                end = newEnd;
+            }
+            else if (args.Length > 2)
+            {
+                Console.WriteLine("Error: too many arguments");
+                Environment.Exit(0);
+            }
 
             if (end < start)
             {
@@ -27,7 +43,7 @@ namespace TwinPrimes
                 Environment.Exit(0);
             }
 
-            Console.WriteLine($"\nfind all prime and twin prime numbers between {start} and {end}");
+            // Console.WriteLine($"\nfind all twin primes between {start} and {end}");
 
             //its prime time
             for (int i = start; i < end; i++)
